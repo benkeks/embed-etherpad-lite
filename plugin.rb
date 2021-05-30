@@ -4,13 +4,20 @@
 # authors: Bernhard Fürst
 # url: https://github.com/fuerst/embed-etherpad-lite
 
-class Onebox::Engine::EtherpadLiteOnebox
-  include Onebox::Engine
-  # Try to guess Etherpad Lite links like http(s)://domain.tld:port/p/pad-id
-  matches_regexp /\/p\/[^\/]+$/
+require 'onebox'
 
-  # See https://github.com/ether/etherpad-lite/wiki/Embed-Parameters
-  def to_html
-    "<iframe name='embed_readwrite' src='#{@url}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false' class='etherpad' style='border-width:0' frameborder='0' scrolling='no' width='100%' height=600></iframe><br><a href='#{@url}' target='_blank'>Goto this EtherPad</a>"
-  end
+module Onebox
+  module Engine
+    class EtherpadLiteOnebox
+      include Engine
+      
+      always_https
+      
+      # Try to guess Etherpad Lite links like http(s)://domain.tld:port/p/pad-id
+      matches_regexp /\/p\/[^\/]+$/
+
+      # See https://github.com/ether/etherpad-lite/wiki/Embed-Parameters
+      def to_html
+        "<iframe name='embed_readwrite' src='#{@url}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false' class='etherpad' style='border-width:0' frameborder='0' scrolling='no' width='100%' height=600></iframe><br><a href='#{@url}' target='_blank'>Goto this EtherPad</a>"
+      end
 end
