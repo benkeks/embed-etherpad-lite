@@ -6,6 +6,9 @@
 
 require 'onebox'
 
+# a strange workaround other plugins used to avoid strange problems with oneboxes when precompiling...
+Onebox = Onebox
+
 module Onebox
   module Engine
     class EtherpadLiteOnebox
