@@ -20,4 +20,6 @@ module Onebox
       def to_html
         "<iframe name='embed_readwrite' src='#{@url}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false' class='etherpad' style='border-width:0' frameborder='0' scrolling='no' width='100%' height=600></iframe><br><a href='#{@url}' target='_blank'>Goto this EtherPad</a>"
       end
+    end
+  end
 end
