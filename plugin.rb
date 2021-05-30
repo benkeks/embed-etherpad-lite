@@ -11,8 +11,6 @@ module Onebox
     class EtherpadLiteOnebox
       include Engine
       
-      always_https
-      
       # Try to guess Etherpad Lite links like http(s)://domain.tld:port/p/pad-id
       matches_regexp /\/p\/[^\/]+$/
 
